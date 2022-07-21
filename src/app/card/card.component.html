@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<!-- <mat-card class="example-card">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>John Doe</mat-card-title>
@@ -16,4 +16,10 @@
     <button mat-button>LIKE</button>
     <button mat-button>SHARE</button>
   </mat-card-actions>
-</mat-card>
+</mat-card> -->
+
+<h2>Teams</h2>
+<div *ngFor="let team of teams$ | async">
+  <h3>{{team.name}}</h3>
+  <p>{{team.description}}</p>
+</div>

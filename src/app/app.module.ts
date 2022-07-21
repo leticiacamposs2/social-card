@@ -1,5 +1,6 @@
 import { Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -19,6 +20,7 @@ import { createCustomElement } from '@angular/elements';
     BrowserModule,
     MatCardModule,
     MatButtonModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: []
