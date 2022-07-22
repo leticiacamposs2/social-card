@@ -1,44 +1,35 @@
+/* eslint-disable @angular-eslint/use-lifecycle-interface */
+/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
+/* eslint-disable prettier/prettier */
+/* eslint-disable no-undef */
 import { CUSTOM_ELEMENTS_SCHEMA, Injector, NgModule } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-import { MatCardModule } from '@angular/material/card';
+import { CardComponent } from './components/card/card.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ListComponent } from './components/list/list.component';
 import { MatButtonModule } from '@angular/material/button';
-
-import { createCustomElement } from '@angular/elements';
-
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { MatCardModule } from '@angular/material/card';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
-import { HomeComponent } from './pages/home/home.component';
-import { CardComponent } from './components/card/card.component';
-import { ListComponent } from './components/list/list.component';
+import { createCustomElement } from '@angular/elements';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
 @NgModule({
-  exports: [
-    MatCardModule,
-    MatButtonModule,
-  ],
+  exports: [MatButtonModule, MatCardModule]
 })
-export class MaterialModule { }
+export class MaterialModule {}
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CardComponent,
-    ListComponent,
-    HomeComponent
-  ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ],
+  declarations: [AppComponent, CardComponent, HomeComponent, ListComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -46,8 +37,8 @@ export class MaterialModule { }
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
       }
     }),
     AppRoutingModule

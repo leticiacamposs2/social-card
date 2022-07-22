@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+/* eslint-disable no-unused-vars */
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -8,9 +9,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent {
-
   teams$: Observable<any> = this.http.get('/api/teams');
 
   constructor(private http: HttpClient) {}
-
 }
