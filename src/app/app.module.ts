@@ -1,4 +1,4 @@
-import { Injector, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
@@ -17,10 +17,17 @@ import { HomeComponent } from './pages/home/home.component';
 import { CardComponent } from './components/card/card.component';
 import { ListComponent } from './components/list/list.component';
 
-// AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
+
+@NgModule({
+  exports: [
+    MatCardModule,
+    MatButtonModule,
+  ],
+})
+export class MaterialModule { }
 
 @NgModule({
   declarations: [
@@ -29,11 +36,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     ListComponent,
     HomeComponent
   ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
   imports: [
     BrowserModule,
-    MatCardModule,
-    MatButtonModule,
     HttpClientModule,
+    MaterialModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
