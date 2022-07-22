@@ -5,16 +5,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
+import { createCustomElement } from '@angular/elements';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CardComponent } from './card/card.component';
 
-import { createCustomElement } from '@angular/elements';
+import { HomeComponent } from './pages/home/home.component';
+import { CardComponent } from './components/card/card.component';
+import { ListComponent } from './components/list/list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent
+    CardComponent,
+    ListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
